@@ -16,5 +16,23 @@ namespace TechJobsPersistent.Models
             Name = name;
             Description = description;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Skill skill &&
+                   Id == skill.Id &&
+                   Name == skill.Name &&
+                   Description == skill.Description;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Name, Description);
+        }
     }
 }

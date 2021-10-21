@@ -16,5 +16,21 @@ namespace TechJobsPersistent.Models
             Name = name;
             Location = location;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Employer employer &&
+                   Id == employer.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Name, Location);
+        }
     }
 }
