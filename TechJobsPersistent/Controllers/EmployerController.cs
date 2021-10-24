@@ -24,9 +24,7 @@ namespace TechJobsPersistent.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Employer> employers = context.Employers
-                .ToList();
-
+            List<Employer> employers = context.Employers.ToList();
             return View(employers);
         }
 
@@ -34,7 +32,6 @@ namespace TechJobsPersistent.Controllers
         {
             List<Employer> employers = context.Employers.ToList();
             AddEmployerViewModel addEmployerViewModel = new AddEmployerViewModel();
-
             return View(addEmployerViewModel);
         }
 
@@ -60,7 +57,6 @@ namespace TechJobsPersistent.Controllers
         public IActionResult About(int id)
         {
             Employer theEmployer = context.Employers.Find(id);
-
             return View(theEmployer); //pass the obj
         }
     }
