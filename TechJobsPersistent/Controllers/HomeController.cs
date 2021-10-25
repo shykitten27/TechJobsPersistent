@@ -55,7 +55,7 @@ namespace TechJobsPersistent.Controllers
 
                 return Redirect("/Index");
             }
-            return View();
+            return View(addJobViewModel);
         }
 
         public IActionResult Detail(int id)
