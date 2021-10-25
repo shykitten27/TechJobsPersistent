@@ -51,7 +51,7 @@ namespace TechJobsPersistent.Controllers
                     EmployerId = addJobViewModel.EmployerId
                 };
 
-                //loop thru each item in selectedSkills
+/*                //loop thru each item in selectedSkills
                 foreach (var skill in selectedSkills)
                 {
                     JobSkill.Add(
@@ -64,9 +64,9 @@ namespace TechJobsPersistent.Controllers
                         }
                     ); ;
                 }
-
+*/
                 context.Jobs.Add(newJob);
-                context.JobSkills.Add(newJobSkill);
+//                context.JobSkills.Add(newJobSkill);
                 context.SaveChanges();
 
                 return Redirect("/Index");
