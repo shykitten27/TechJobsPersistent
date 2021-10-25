@@ -16,7 +16,10 @@ namespace TechJobsPersistent.ViewModels
         public List<SelectListItem> Employers { get; set; }
         public int EmployerId { get; set; }
 
-        public AddJobViewModel(List<Employer> employers)
+        public List<SelectListItem> Skills { get; set; }
+        public int SkillId { get; set; }
+
+        public AddJobViewModel(List<Employer> employers, List<Skill> skills)
         {
             Employers = new List<SelectListItem>();
 
@@ -27,6 +30,19 @@ namespace TechJobsPersistent.ViewModels
                     {
                         Value = employer.Id.ToString(),
                         Text = employer.Name
+                    }
+                ); ;
+            }
+
+            Employers = new List<SelectListItem>();
+
+            foreach (var skill in skills)
+            {
+                Employers.Add(
+                    new SelectListItem
+                    {
+                        Value = skill.Id.ToString(),
+                        Text = skill.Name
                     }
                 ); ;
             }
