@@ -54,6 +54,8 @@ namespace TechJobsPersistent.Controllers
 /*                //loop thru each item in selectedSkills
                 foreach (var skill in selectedSkills)
                 {
+
+                //                context.JobSkills.Add(newJobSkill);
                     JobSkill.Add(
                         new SelectListItem
                         {
@@ -63,10 +65,11 @@ namespace TechJobsPersistent.Controllers
                             Text = skill.Name
                         }
                     ); ;
+
                 }
 */
                 context.Jobs.Add(newJob);
-//                context.JobSkills.Add(newJobSkill);
+
                 context.SaveChanges();
 
                 return Redirect("/Index");
