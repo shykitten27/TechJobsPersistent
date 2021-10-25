@@ -11,7 +11,6 @@ namespace TechJobsPersistent.ViewModels
     public class AddJobViewModel
     {
         [Required(ErrorMessage = "Name is required")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 50 characters")]
         public string Name { get; set; } //Job Name
 
         public List<SelectListItem> Employers { get; set; }
