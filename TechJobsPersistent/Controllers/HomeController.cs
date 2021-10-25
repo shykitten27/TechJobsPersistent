@@ -38,8 +38,12 @@ namespace TechJobsPersistent.Controllers
             return View(addJobViewModel);
         }
 
-        public IActionResult ProcessAddJobForm()
+        public IActionResult ProcessAddJobForm(AddJobViewModel addJobViewModel)
         {
+            if (ModelState.IsValid)
+            {
+
+            }
             return View();
         }
 
