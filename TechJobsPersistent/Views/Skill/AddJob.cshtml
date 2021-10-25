@@ -1,6 +1,6 @@
 ﻿@model TechJobsPersistent.ViewModels.AddJobSkillViewModel
 
-<h1>Add Tag to Event: @Model.Job.Name</h1>
+<h1>Add Skill to Job: @Model.Job.Name</h1>
 
 <form asp-controller="Skill" asp-action="AddJob" method="post">
     <input type="hidden" value="@Model.Job.Id" name="JobId" />
