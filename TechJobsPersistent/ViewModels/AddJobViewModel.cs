@@ -34,11 +34,11 @@ namespace TechJobsPersistent.ViewModels
                 ); ;
             }
 
-            Employers = new List<SelectListItem>();
+            Skills = new List<SelectListItem>();
 
             foreach (var skill in skills)
             {
-                Employers.Add(
+                Skills.Add(
                     new SelectListItem
                     {
                         Value = skill.Id.ToString(),

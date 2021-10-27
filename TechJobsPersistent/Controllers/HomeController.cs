@@ -51,30 +51,20 @@ namespace TechJobsPersistent.Controllers
                     EmployerId = addJobViewModel.EmployerId
                 };
 
-/*                //loop thru each item in selectedSkills
+                //loop thru each item in selectedSkills
                 foreach (var skill in selectedSkills)
                 {
-
-                //                context.JobSkills.Add(newJobSkill);
-                    JobSkill.Add(
-                        new SelectListItem
-                        {
-                            Value = int.Parse(job.Id),
-                            Text = jobSkill.name,
-                            Value = int.Parse(skill.Id),
-                            Text = skill.Name
-                        }
-                    ); ;
+                    JobSkill theJobSkill = context.JobSkills.Find()
+                        //provide Job and Skill
 
                 }
-*/
-                context.Jobs.Add(newJob);
 
+                context.Jobs.Add(newJob);
                 context.SaveChanges();
 
                 return Redirect("/Index");
             }
-            return View(addJobViewModel);
+            return View("AddJob", addJobViewModel);
         }
 
         public IActionResult Detail(int id)
