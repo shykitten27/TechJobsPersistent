@@ -54,8 +54,15 @@ namespace TechJobsPersistent.Controllers
                 //loop thru each item in selectedSkills
                 foreach (var skill in selectedSkills)
                 {
-                    JobSkill theJobSkill = context.JobSkills.Find()
-                        //provide Job and Skill
+                    //loop thru selectedSkills, you already have the Id,Name,Description
+                    JobSkill theJobSkill = context.JobSkills.Find(addJobViewModel.Name);
+                    JobSkill newJobSkill = new JobSkill
+                    {
+                        Job = newJob,
+                        //Skill = theJobSkill,
+                        SkillId = int.Parse(skill)
+                    };
+                    context.JobSkills.Add(newJobSkill); //add each new skill from selectedSkills
 
                 }
 
