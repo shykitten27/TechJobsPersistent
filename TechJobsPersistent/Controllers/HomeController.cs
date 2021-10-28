@@ -24,7 +24,7 @@ namespace TechJobsPersistent.Controllers
 
         public IActionResult Index()
         {
-            List<Job> jobs = context.Jobs.Include(j => j.Employer).ToList();
+            List<Job> jobs = context.Jobs.Include(j => j.Employer).Include(j => j.JobSkills).ToList();
 
             return View(jobs);
         }
@@ -54,22 +54,21 @@ namespace TechJobsPersistent.Controllers
                 //loop thru each item in selectedSkills
                 foreach (var skill in selectedSkills)
                 {
-                    //loop thru selectedSkills, you already have the Id,Name,Description
-                    JobSkill theJobSkill = context.JobSkills.Find(addJobViewModel.Name);
+                    //loop thru selectedSkills, just the Ids
+                    //JobSkill theJobSkill = context.JobSkills.Find(addJobViewModel.Name);
                     JobSkill newJobSkill = new JobSkill
                     {
+                        JobId = newJob.Id,
                         Job = newJob,
-                        //Skill = theJobSkill,
-                        SkillId = int.Parse(skill)
+                        SkillId = int.Parse(skill) //just the Id
                     };
                     context.JobSkills.Add(newJobSkill); //add each new skill from selectedSkills
-
                 }
 
                 context.Jobs.Add(newJob);
-                context.SaveChanges();
+                context.SaveChanges(); //both objects or tables
 
-                return Redirect("/Index");
+                return Redirect("Index");
             }
             return View("AddJob", addJobViewModel);
         }
