@@ -3,6 +3,7 @@ SELECT DATA_TYPE from INFORMATION_SCHEMA.COLUMNS where table_schema = 'techjobs'
 
 --Part 2
 SELECT * FROM techjobs.employers where location = 'Saint Louis' order by Name;
+--There is no St. Louis City as I imported the flat file from original project. 
 
 --Part 3
 select distinct s.Name, s.Description from skills s
