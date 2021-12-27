@@ -52,11 +52,11 @@ namespace TechJobsPersistent.Controllers
             }
             else
             {
-                if (searchType == "employer")
+                if (searchType.ToLower() == "employer")
                 {
                     jobs = context.Jobs
                         .Include(j => j.Employer)
-                        .Where(j => j.Employer.Name == searchTerm)
+                        .Where(j => j.Employer.Name.ToLower().StartsWith(searchTerm.ToLower()))
                         .ToList();
 
                     foreach (Job job in jobs)
@@ -74,7 +74,7 @@ namespace TechJobsPersistent.Controllers
                 else if (searchType == "skill")
                 {
                     List<JobSkill> jobSkills = context.JobSkills
-                        .Where(j => j.Skill.Name == searchTerm)
+                        .Where(j => j.Skill.Name.ToLower().StartsWith(searchTerm.ToLower()))
                         .Include(j => j.Job)
                         .ToList();
 
