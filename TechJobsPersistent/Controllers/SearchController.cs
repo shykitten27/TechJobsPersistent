@@ -96,6 +96,8 @@ namespace TechJobsPersistent.Controllers
             }
 
             ViewBag.columns = ListController.ColumnChoices;
+            //retain searchTerm
+            ViewBag.searchTerm = searchTerm;
             ViewBag.title = "Jobs with " + ListController.ColumnChoices[searchType] + ": " + searchTerm;
             ViewBag.jobs = displayJobs;
 
